@@ -1,10 +1,15 @@
 import Sheet1 from "./assets/amazing-grace.png"
 import "./Sheet.css"
+import React from "react"
 
 function SheetMusic() {
+  const containerElement = React.useRef(null);
   return (
-    <div className="sheet">
-      <img src={Sheet1}></img>
+    <div>
+      <div className="sheet" ref={containerElement}>
+        <img src={Sheet1}></img>
+      </div>
+      <button onCLick={() => { containerElement.current.scrollTop += 10 }}>DOWN</button>
     </div>
   )
 }

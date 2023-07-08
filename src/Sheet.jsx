@@ -9,7 +9,7 @@ function SheetMusic() {
       <div className="sheet" ref={containerElement}>
         <img src={Sheet1}></img>
       </div>
-      <button onCLick={() => { containerElement.current.scrollTop += 10 }}>DOWN</button>
+      <button onClick={() => { containerElement.current.scrollTop += 10 }}>DOWN</button>
     </div>
   )
 }

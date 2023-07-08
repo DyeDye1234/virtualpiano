@@ -3,7 +3,7 @@ import "./Sheet.css"
 import React from "react"
 
 function SheetMusic() {
-  const containerElement = React.useRef(null);
+  const containerElement = React.useRef(null)
   return (
     <div>
       <div className="sheet" ref={containerElement}>

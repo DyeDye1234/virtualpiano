@@ -19,7 +19,7 @@ function SheetMusic() {
   }, [count, interval])
 
   return (
-    <div>
+    <>
       <div className="sheet" ref={containerElement}>
         <img src={Sheet1} alt="sheet music"></img>
       </div>
@@ -35,7 +35,7 @@ function SheetMusic() {
           onChange={(e) => setInterval(Number(e.target.value))}
         />
       </div>
-    </div >
+    </>
   )
 }
 

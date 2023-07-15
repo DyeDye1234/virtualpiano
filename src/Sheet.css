@@ -1,4 +1,8 @@
 .sheet {
-    height: 850px;
+    height: 80%;
     overflow: auto;
+}
+
+.sheet > img {
+    width: 100%;
 }

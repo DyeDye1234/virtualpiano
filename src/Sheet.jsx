@@ -1,16 +1,42 @@
 import Sheet1 from "./assets/amazing-grace.png"
 import "./Sheet.css"
-import React from "react"
+import React, { useState, useEffect, useRef } from "react"
 
 function SheetMusic() {
-  const containerElement = React.useRef(null)
+  const containerElement = useRef(null)
+  const [count, setCount] = useState(10)
+  const [interval, setInterval] = useState(1000)
+
+  useEffect(() => {
+    const scrollInterval = setInterval(() => {
+      if (containerElement.current) {
+        containerElement.current.scrollTop += count;
+      }
+    }, interval)
+
+    return () => clearInterval(scrollInterval)
+
+  }, [count, interval])
+
   return (
     <div>
       <div className="sheet" ref={containerElement}>
-        <img src={Sheet1}></img>
+        <img src={Sheet1} alt="sheet music"></img>
       </div>
-      <button onClick={() => { containerElement.current.scrollTop += 200 }}>DOWN</button>
-    </div>
+      <button onClick={() => {
+        setCount(20)
+        console.log("Arrow function")
+      }}>Scroll</button>
+      <div>
+        <label>Set Interval: </label>
+        <input
+          type="number"
+          value={interval}
+          onChange={(e) => setInterval(Number(e.target.value))}
+        />
+      </div>
+    </div >
   )
 }
+
 export default SheetMusic

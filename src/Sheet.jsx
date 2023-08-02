@@ -1,74 +1,216 @@
-import Sheet1 from "./assets/amazing-grace.png"
-import "./Sheet.css"
-import { useState, useRef, useEffect } from "react"
+import React, { useState, useRef, useEffect } from "react";
+import "./Sheet.css";
+import image from "./assets/Amazing_grace.jpg";
+import image1 from "./assets/Happy_birthday.jpg";
+import image2 from "./assets/Angels.jpg";
+import image3 from "./assets/Anvil.jpg";
+import image4 from "./assets/Auld.jpg";
+import image5 from "./assets/Away.jpg";
+import image6 from "./assets/Barcarolle.jpg";
+import image7 from "./assets/Battle.jpg";
+import image8 from "./assets/Blue.jpg";
+import image9 from "./assets/Bridal.jpg";
+import image10 from "./assets/When.jpg";
+import image11 from "./assets/We.jpg";
+
+const songs = [
+  {
+    id: 1,
+    title: "Amazing Grace",
+    sheet: image,
+  },
+  {
+    id: 2,
+    title: "Happy Birthday to You",
+    sheet: image1,
+  },
+  {
+    id: 3,
+    title: "Angels We Have Heard On High",
+    sheet: image2,
+  },
+  {
+    id: 4,
+    title: "Anvil Chorus",
+    sheet: image3,
+  },
+  {
+    id: 5,
+    title: "Auld Lang Syne",
+    sheet: image4,
+  },
+  {
+    id: 6,
+    title: "Away in A Manger",
+    sheet: image5,
+  },
+  {
+    id: 7,
+    title: "Barcarolle",
+    sheet: image6,
+  },
+  {
+    id: 8,
+    title: "Battle Hymm of the Republic",
+    sheet: image7,
+  },
+  {
+    id: 9,
+    title: "Blue Bells of Scotland",
+    sheet: image8,
+  },
+  {
+    id: 10,
+    title: "Bridal Chorus",
+    sheet: image9,
+  },
+  {
+    id: 11,
+    title: "When the Saints Go Marching In",
+    sheet: image10,
+  },
+  {
+    id: 12,
+    title: "We Wish You a Merry Chirstmas",
+    sheet: image11,
+  },
+];
 
 function SheetMusic() {
-  const containerElement = useRef(null)
-  const directionRef = useRef(1)
-  const [count, setCount] = useState(10)
-  const [duration, setDuration] = useState(1000)
-  const [scrollIntervalId, setScrollIntervalId] = useState(null)
+  const containerElement = useRef(null);
+  const [count, setCount] = useState(10);
+  const [duration, setDuration] = useState(500);
+  const [selectedSong, setSelectedSong] = useState(songs[0]);
+  const [scrollIntervalId, setScrollIntervalId] = useState(null);
+  const [isScrollingUp, setIsScrollingUp] = useState(false);
+  const [isScrollingDown, setIsScrollingDown] = useState(false);
 
   const startScrolling = (newDirection) => {
-    stopScrolling() // Stop any previous scrolling
-    directionRef.current = newDirection
+    stopScrolling();
     const scrollInterval = setInterval(() => {
       if (containerElement.current) {
-        containerElement.current.scrollTop += directionRef.current * count
+        containerElement.current.scrollTop += newDirection * count;
       }
-    }, duration)
-    setScrollIntervalId(scrollInterval)
-  }
+    }, duration);
+    setScrollIntervalId(scrollInterval);
+
+    // Update the scrolling direction state
+    if (newDirection === 1) {
+      setIsScrollingUp(true);
+    } else if (newDirection === -1) {
+      setIsScrollingDown(true);
+    }
+  };
 
   const stopScrolling = () => {
-    if (scrollIntervalId) {
-      clearInterval(scrollIntervalId)
-      setScrollIntervalId(null)
-    }
-  }
+    clearInterval(scrollIntervalId);
+    setScrollIntervalId(null);
 
-  // Make sure to clear any intervals when the component unmounts
-  useEffect(() => {
-    return () => {
-      stopScrolling()
+    // Reset the scrolling direction state
+    setIsScrollingUp(false);
+    setIsScrollingDown(false);
+  };
+
+  const handleScrollUp = () => {
+    if (isScrollingUp) {
+      stopScrolling();
+    } else {
+      startScrolling(1);
     }
-  }, [])
+  };
+
+  const handleScrollDown = () => {
+    if (isScrollingDown) {
+      stopScrolling();
+    } else {
+      startScrolling(-1);
+    }
+  };
+
+  const handleSongClick = (song) => {
+    stopScrolling();
+    setSelectedSong(song);
+    containerElement.current.scrollTop = 0;
+  };
+
+  // Restart the scrolling interval when duration changes
+  useEffect(() => {
+    if (scrollIntervalId) {
+      stopScrolling();
+      const direction = isScrollingUp ? 1 : isScrollingDown ? -1 : 0;
+      if (direction !== 0) {
+        startScrolling(direction);
+      }
+    }
+  }, [duration]);
 
   return (
-    <>
-      <div className="sheet" ref={containerElement}>
-        <img src={Sheet1} alt="sheet music"></img>
+    <div className='container'>-
+      <div className='columns'>
+        {/* Left Column */}
+        <div className='left-column'>
+          {/* Upper Row */}
+          <h2>Available Songs</h2>
+          <div className='upper-row'>
+            <div className='song-list'>
+              <ul>
+                {songs.map((song) => (
+                  <li
+                    key={song.id}
+                    className={song.id === selectedSong.id ? "active" : ""}
+                    onClick={() => handleSongClick(song)}
+                  >
+                    {song.title}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+          {/* Lower Row */}
+          <div className='lower-row'>
+            <div className='speed-control'>
+              <label>
+                Speed: <span>{duration / 1000} s</span>
+              </label>
+              <input
+                type='range'
+                min='100'
+                max='5000'
+                step='100'
+                value={duration}
+                onChange={(e) => setDuration(Number(e.target.value))}
+              />
+            </div>
+
+            <div className='control-buttons'>
+              <button
+                onClick={handleScrollUp}
+                className={isScrollingUp ? "stop-button" : "scroll-button"}
+              >
+                {isScrollingUp ? "Stop" : "Scroll Down"}
+              </button>
+              <button
+                onClick={handleScrollDown}
+                className={isScrollingDown ? "stop-button" : "scroll-button"}
+              >
+                {isScrollingDown ? "Stop" : "Scroll Up"}
+              </button>
+            </div>
+          </div>
+        </div>
+
+        {/* Right Column */}
+        <div className='right-column'>
+          <div className='sheet-container' ref={containerElement}>
+            <img src={selectedSong.sheet} alt='sheet music' />
+          </div>
+        </div>
       </div>
-      <button
-        onClick={() => {
-          setCount(20)
-          startScrolling(1) // Start scrolling down
-        }}
-      >
-        Scroll Down
-      </button>
-      <button
-        onClick={stopScrolling}
-      >
-        Stop
-      </button>
-      <button
-        onClick={() => startScrolling(-1)} // Start scrolling up
-      >
-        Scroll Up
-      </button>
-      <div>
-        <label>Set Interval: </label>
-        <input
-          type="number"
-          value={duration}
-          onChange={(e) => setDuration(Number(e.target.value))}
-        />
-      </div>
-    </>
-  )
+    </div>
+  );
 }
 
-export default SheetMusic
+export default SheetMusic;
+
 
 

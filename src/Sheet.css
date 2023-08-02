@@ -1,8 +1,241 @@
-.sheet {
-    height: 80%;
-    overflow: auto;
+/* Sheet.css */
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    /* Center the content horizontally */
+    align-items: center;
+    /* Center the content vertically */
+    /* background-color: #1e1e1e; */
+    background-image: linear-gradient(180deg, #fdc830, #f37335);
 }
 
-.sheet > img {
+.container {
+    height: 100%;
+    max-width: 1500px;
+    /* Set a fixed width for the columns */
+    display: flex;
+    justify-content: center;
+    /* Center the columns horizontally */
+    border-radius: 20px;
+    /* Add a border radius to create the card effect */
+    overflow: hidden;
+    /* Hide any content that overflows from the rounded corners */
+}
+
+.columns {
+    display: flex;
+    height: 600px;
+    /* Set a fixed height of 600px for both columns */
+}
+
+.left-column {
+    color: #fff;
+    width: 40%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* Center the content vertically */
+    border-top-left-radius: 20px;
+    /* Add border radius to the top left corner of the left column */
+    border-bottom-left-radius: 20px;
+    /* Add border radius to the bottom left corner of the left column */
+}
+
+.upper-row {
+    padding: 0.5rem 1rem;
+    overflow-y: auto;
+    /* Allow scrolling within the upper row */
+    background-color: #2d2d2d;
+    position: relative;
+    /* Set the upper row as a relative positioning context */
+}
+
+.left-column>h2 {
+    padding: 2.5rem 0 1.5rem 1.5rem;
+    font-size: 1.5rem;
+    margin: 0;
+    /* Remove any default margin to prevent spacing */
+    position: sticky;
+    /* Set the h2 tag as sticky */
+    top: 0;
+    /* Position the h2 tag at the top of the upper row */
+    background-color: #2d2d2d;
+    /* Add a background color to the h2 tag */
+    z-index: 1;
+    /* Set a higher z-index to make sure the h2 tag appears above the songs list */
+}
+
+.song-list {
+    flex: 1;
+    /* padding: 1rem; */
+    background-color: #2d2d2d;
+    overflow-y: auto;
+}
+
+.song-list ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.song-list li {
+    cursor: pointer;
+    padding: 1rem;
+    border-bottom: 1px solid #4e4e4e;
+    /* Add a border at the bottom of each song item */
+    transition: background-color 0.2s;
+    /* Add a smooth background color transition on hover */
+}
+
+.song-list li:last-child {
+    border-bottom: none;
+    /* Remove the border from the last song item */
+}
+
+.song-list li:hover {
+    background-color: #ae4800;
+    /* Change background color on hover */
+}
+
+.song-list li.active {
+    background-color: #ff6f06;
+    /* Apply a different background color to the active song item */
+    color: #fff;
+    /* Change the text color of the active song item */
+}
+
+.lower-row {
+    background-color: #1b1b1b;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; Center the content horizontally */
+}
+
+.speed-control {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 1.6rem;
+}
+
+.speed-control label {
+    color: #fff;
+    font-size: 1.2rem;
+    margin: 0 0 1rem 0;
+}
+
+.speed-control label span {
+    color: #ff6f06;
+}
+
+.slider-container {
     width: 100%;
+}
+
+.slider {
+    width: 100%;
+    -webkit-appearance: none;
+    /* Remove default styling on iOS */
+    appearance: none;
+    height: 10px;
+    border-radius: 5px;
+    background: #2d2d2d;
+    outline: none;
+    /* Remove default focus outline */
+}
+
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    /* Remove default styling on iOS */
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #fdc830;
+    cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #fdc830;
+    cursor: pointer;
+}
+
+.control-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.scroll-button,
+.stop-button {
+    width: 100%;
+    padding: 1rem;
+    font-size: 1rem;
+    color: #fff;
+    /* background-color: #ff6f06; */
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.scroll-button {
+    background-color: #2d2d2d;
+    border: 1px solid #2d2d2d;
+    color: #fff;
+}
+
+.scroll-button:hover {
+    background-color: #2d2d2d;
+    border: 1px solid #ff6f06;
+}
+
+.stop-button {
+    background-color: #ed213a;
+    color: #fff;
+}
+
+.stop-button:hover {
+    background-color: #bc0016;
+}
+
+.right-column {
+    width: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* Center the content horizontally */
+    position: relative;
+    padding: 1rem;
+    background-color: #fff;
+    /* Optional: Add a white background */
+    border-top-right-radius: 20px;
+    /* Add border radius to the top right corner of the right column */
+    border-bottom-right-radius: 20px;
+    /* Add border radius to the bottom right corner of the right column */
+}
+
+.sheet-container {
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    /* Allow scrolling within the right column */
+    background-color: #fff;
+    /* Optional: Add a white background */
+}
+
+.sheet-container img {
+    width: 100%;
+    height: auto;
+    /* Allow the image height to overflow and adjust based on width */
 }

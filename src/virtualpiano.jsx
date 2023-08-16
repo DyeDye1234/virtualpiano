@@ -6,6 +6,7 @@ import { SplendidGrandPiano } from "smplr"
 function VirtualPiano() {
   const [status, setStatus] = useState("start")
   const [piano, setPiano] = useState(undefined)
+  const [octave, setOctave] = useState(3)
 
   const loadPiano = () => {
     if (piano) return
@@ -21,27 +22,70 @@ function VirtualPiano() {
       <div>{status}</div>
       <button onClick={() => loadPiano()}>Start</button>
       <button onClick={() => piano?.start({ note: "C3" })}>Play</button>
+      <button onClick={() => setOctave(octave - 1)}>Down</button>
+      <button onClick={() => setOctave(octave + 1)}>Up</button>
       <div className="container">
         <PianoKey
           onPress={() => {
-            console.log("C3")
-            piano?.start({ note: "C3" })
-          }}
-        >
-          Q
-        </PianoKey>
+            console.log(`C${octave}`)
+            piano?.start({ note: `C${octave}` })
+          }}>Q</PianoKey>
 
-        <PianoKey keyType="black">2</PianoKey>
-        <PianoKey>W</PianoKey>
-        <PianoKey keyType="black">3</PianoKey>
-        <PianoKey>E</PianoKey>
-        <PianoKey>R</PianoKey>
-        <PianoKey keyType="black">5</PianoKey>
-        <PianoKey>T</PianoKey>
-        <PianoKey keyType="black">6</PianoKey>
-        <PianoKey>Y</PianoKey>
-        <PianoKey keyType="black">7</PianoKey>
-        <PianoKey>U</PianoKey>
+        <PianoKey keyType="black" onPress={() => {
+          console.log(`C#${octave}`)
+          piano?.start({ note: `C#${octave}` })
+        }}>2</PianoKey>
+
+        <PianoKey onPress={() => {
+          console.log("D3")
+          piano?.start({ note: "D" })
+        }}>W</PianoKey>
+
+        <PianoKey keyType="black" onPress={() => {
+          console.log("D#3")
+          piano?.start({ note: "D#" })
+        }}>3</PianoKey>
+
+        <PianoKey onPress={() => {
+          console.log("E3")
+          piano?.start({ note: "E" })
+        }}>E</PianoKey>
+
+        <PianoKey onPress={() => {
+          console.log("F3")
+          piano?.start({ note: "F" })
+        }}>R</PianoKey>
+
+        <PianoKey keyType="black" onPress={() => {
+          console.log("F#3")
+          piano?.start({ note: "F#" })
+        }}>5</PianoKey>
+
+        <PianoKey onPress={() => {
+          console.log("G3")
+          piano?.start({ note: "G3" })
+        }}>T</PianoKey>
+
+        <PianoKey keyType="black" onPress={() => {
+          console.log("G#3")
+          piano?.start({ note: "G#3" })
+        }}>6</PianoKey>
+
+        <PianoKey onPress={() => {
+          console.log("A3")
+          piano?.start({ note: "A3" })
+        }}>Y</PianoKey>
+
+        <PianoKey keyType="black" onPress={() => {
+          console.log("A#3")
+          piano?.start({ note: "A#3" })
+        }}>7</PianoKey>
+
+        <PianoKey onPress={() => {
+          console.log("B3")
+          piano?.start({ note: "B3" })
+        }}>U</PianoKey>
+
       </div>
     </div>
   )

@@ -37,54 +37,115 @@ function VirtualPiano() {
         }}>2</PianoKey>
 
         <PianoKey onPress={() => {
-          console.log("D3")
-          piano?.start({ note: "D" })
+          console.log(`D${octave}`)
+          piano?.start({ note: `D${octave}` })
         }}>W</PianoKey>
 
         <PianoKey keyType="black" onPress={() => {
-          console.log("D#3")
-          piano?.start({ note: "D#" })
+          console.log(`D#${octave}`)
+          piano?.start({ note: `D#${octave}` })
         }}>3</PianoKey>
 
         <PianoKey onPress={() => {
-          console.log("E3")
-          piano?.start({ note: "E" })
+          console.log(`E${octave}`)
+          piano?.start({ note: `E${octave}` })
         }}>E</PianoKey>
 
         <PianoKey onPress={() => {
-          console.log("F3")
-          piano?.start({ note: "F" })
+          console.log(`F${octave}`)
+          piano?.start({ note: `F${octave}` })
         }}>R</PianoKey>
 
         <PianoKey keyType="black" onPress={() => {
-          console.log("F#3")
-          piano?.start({ note: "F#" })
+          console.log(`F#${octave}`)
+          piano?.start({ note: `F#${octave}` })
         }}>5</PianoKey>
 
         <PianoKey onPress={() => {
-          console.log("G3")
-          piano?.start({ note: "G3" })
+          console.log(`G${octave}`)
+          piano?.start({ note: `G${octave}` })
         }}>T</PianoKey>
 
         <PianoKey keyType="black" onPress={() => {
-          console.log("G#3")
-          piano?.start({ note: "G#3" })
+          console.log(`G#${octave}`)
+          piano?.start({ note: `G#${octave}` })
         }}>6</PianoKey>
 
         <PianoKey onPress={() => {
-          console.log("A3")
-          piano?.start({ note: "A3" })
+          console.log(`A${octave}`)
+          piano?.start({ note: `A${octave}` })
         }}>Y</PianoKey>
 
         <PianoKey keyType="black" onPress={() => {
-          console.log("A#3")
-          piano?.start({ note: "A#3" })
+          console.log(`A#${octave}`)
+          piano?.start({ note: `A#${octave}` })
         }}>7</PianoKey>
 
         <PianoKey onPress={() => {
-          console.log("B3")
-          piano?.start({ note: "B3" })
+          console.log(`B${octave}`)
+          piano?.start({ note: `B${octave}` })
         }}>U</PianoKey>
+        <PianoKey
+          onPress={() => {
+            console.log(`C${octave}`)
+            piano?.start({ note: `C${octave}` })
+          }}>Q</PianoKey>
+
+        <PianoKey keyType="black" onPress={() => {
+          console.log(`C#${octave}`)
+          piano?.start({ note: `C#${octave}` })
+        }}>2</PianoKey>
+
+        <PianoKey onPress={() => {
+          console.log(`D${octave}`)
+          piano?.start({ note: `D${octave}` })
+        }}>W</PianoKey>
+
+        <PianoKey keyType="black" onPress={() => {
+          console.log(`D#${octave}`)
+          piano?.start({ note: `D#${octave}` })
+        }}>3</PianoKey>
+
+        <PianoKey onPress={() => {
+          console.log(`E${octave}`)
+          piano?.start({ note: `E${octave}` })
+        }}>E</PianoKey>
+
+        <PianoKey onPress={() => {
+          console.log(`F${octave}`)
+          piano?.start({ note: `F${octave}` })
+        }}>R</PianoKey>
+
+        <PianoKey keyType="black" onPress={() => {
+          console.log(`F#${octave}`)
+          piano?.start({ note: `F#${octave}` })
+        }}>5</PianoKey>
+
+        <PianoKey onPress={() => {
+          console.log(`G${octave}`)
+          piano?.start({ note: `G${octave}` })
+        }}>T</PianoKey>
+
+        <PianoKey keyType="black" onPress={() => {
+          console.log(`G#${octave}`)
+          piano?.start({ note: `G#${octave}` })
+        }}>6</PianoKey>
+
+        <PianoKey onPress={() => {
+          console.log(`A${octave}`)
+          piano?.start({ note: `A${octave}` })
+        }}>Y</PianoKey>
+
+        <PianoKey keyType="black" onPress={() => {
+          console.log(`A#${octave}`)
+          piano?.start({ note: `A#${octave}` })
+        }}>7</PianoKey>
+
+        <PianoKey onPress={() => {
+          console.log(`B${octave}`)
+          piano?.start({ note: `B${octave}` })
+        }}>U</PianoKey>
+
 
       </div>
     </div>

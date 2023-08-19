@@ -4,8 +4,8 @@ function PianoKey({ keyType, children, onPress }) {
   const [pressed, setPressed] = useState(false)
   useEffect(() => {
     const onKeyDown = (event) => {
-      console.log(event.key)
-      if (event.key.toUpperCase() === children) {
+      console.log(event.key, event.repeat)
+      if (event.key.toUpperCase() === children && !event.repeat) {
         setPressed(true)
         console.log("onPress")
         onPress?.()

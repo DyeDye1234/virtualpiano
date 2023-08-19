@@ -145,7 +145,7 @@ function SheetMusic() {
   }, [duration]);
 
   return (
-    <div className='container'>-
+    <div className='container'>
       <div className='columns'>
         {/* Left Column */}
         <div className='left-column'>
@@ -175,7 +175,7 @@ function SheetMusic() {
               <input
                 type='range'
                 min='100'
-                max='5000'
+                max='10000'
                 step='100'
                 value={duration}
                 onChange={(e) => setDuration(Number(e.target.value))}
@@ -203,6 +203,8 @@ function SheetMusic() {
         <div className='right-column'>
           <div className='sheet-container' ref={containerElement}>
             <img src={selectedSong.sheet} alt='sheet music' />
+          </div>
+          <div class='keyboard'> KEYBOARD
           </div>
         </div>
       </div>

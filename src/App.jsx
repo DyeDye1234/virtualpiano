@@ -3,7 +3,7 @@ import SheetMusic from "./Sheet"
 import VirtualPiano from "./virtualpiano"
 
 function App() {
-  return <VirtualPiano />
+  return <SheetMusic />
 }
 
 export default App

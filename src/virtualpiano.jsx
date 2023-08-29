@@ -3,6 +3,17 @@ import "./virtualpiano.css"
 import PianoKey from "./pianokey"
 import { SplendidGrandPiano } from "smplr"
 
+const keys = [
+  { key: "C", nextOctave: false },
+  { key: "D", nextOctave: false },
+  { key: "E", nextOctave: false },
+  { key: "F", nextOctave: false },
+  { key: "G", nextOctave: false },
+  { key: "A", nextOctave: false },
+  { key: "B", nextOctave: false },
+  { key: "C", nextOctave: true }
+];
+
 function VirtualPiano() {
   const [status, setStatus] = useState("start")
   const [piano, setPiano] = useState(undefined)
@@ -17,7 +28,14 @@ function VirtualPiano() {
       setStatus("ready")
     })
   }
+  const currentKeys = keys
+    .slice(0, 0 + 5)
+    .map(
+      (pianoKey) =>
+        `${pianoKey.key}${octave + (pianoKey.nextOctave ? 1 : 0)}`
+    );
   return (
+
     <div>
       <div>{status}</div>
       <button onClick={() => loadPiano()}>Start</button>
@@ -25,6 +43,9 @@ function VirtualPiano() {
       <button onClick={() => setOctave(octave - 1)}>Down</button>
       <button onClick={() => setOctave(octave + 1)}>Up</button>
       <div className="piano-container">
+        {currentKeys.map((pianoKey) => (
+          <PianoKey>{pianoKey}</PianoKey>
+        ))}
         <PianoKey
           onPress={() => {
             console.log(`C${octave}`)

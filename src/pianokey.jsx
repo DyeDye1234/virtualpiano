@@ -33,6 +33,7 @@ function PianoKey({ keyType, children, onPress }) {
     <button
       onMouseDown={function () {
         setPressed(true)
+        onPress?.()
       }}
       onMouseUp={function () {
         setPressed(false)

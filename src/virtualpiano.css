@@ -5,29 +5,51 @@
     align-items: center;
     font-size: 24px;
     font-weight: 700;
+    padding:0;
     padding-bottom: 10px;
 }
 
 .piano-container {
     display: flex;
     flex-direction: row;
+    justify-content: center;
 }
 
 .wkey {
+    flex: 1;
+    background: white;
     border: solid;
     height: 200px;
-    width: 60px;
+    max-width: 60px;
+    color: black;
+    border-width: 1px;
 }
 
 .bkey {
+    position: relative;
     height: 100px;
+    min-width: 30px;
     width: 30px;
-    margin: 0px -15px;
+    margin: 0 -15px;
     background-color: black;
     color: white;
     z-index: 1;
+    border-width: 0;
 }
 
 .pressed {
     background-color: red;
+}
+
+/* Do not show keyboard when too narrow */
+@media screen and (max-height: 440px) {
+    .wkey {
+        flex: 1;
+        background: white;
+        border: solid;
+        height: 160px;
+        max-width: 60px;
+        color: black;
+        border-width: 1px;
+    }
 }

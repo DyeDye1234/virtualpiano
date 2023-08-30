@@ -16,21 +16,17 @@ body {
 .container {
     width: 100%;
     height: auto;
-    max-width: 1600px;
-    /* Set a fixed width for the columns */
     display: flex;
     justify-content: center;
     /* Center the columns horizontally */
-    border-radius: 20px;
-    /* Add a border radius to create the card effect */
     overflow: hidden;
     /* Hide any content that overflows from the rounded corners */
 }
 
 .columns {
     display: flex;
-    height: 600px
-        /* Set a fixed height of 600px for both columns */
+    max-height: 100vh;
+    width: 100%;
 }
 
 .left-column {
@@ -41,10 +37,6 @@ body {
     flex-direction: column;
     justify-content: center;
     /* Center the content vertically */
-    border-top-left-radius: 20px;
-    /* Add border radius to the top left corner of the left column */
-    border-bottom-left-radius: 20px;
-    /* Add border radius to the bottom left corner of the left column */
 }
 
 .upper-row {
@@ -217,22 +209,17 @@ body {
 }
 
 .right-column {
-    width: auto;
+    width: 75%;
     display: flex;
     flex-direction: column;
     align-items: center;
     /* Center the content horizontally */
     position: relative;
-    padding: 1rem;
     background-color: #fff;
-    /* Optional: Add a white background */
-    border-top-right-radius: 20px;
-    /* Add border radius to the top right corner of the right column */
-    border-bottom-right-radius: 20px;
-    /* Add border radius to the bottom right corner of the right column */
 }
 
 .sheet-container {
+    max-width: 800px;
     width: 100%;
     overflow: auto;
     /* Allow scrolling within the right column */
@@ -246,7 +233,7 @@ body {
 
 .keyboard {
     width: 100%;
-    height: 250px;
+    height: 50%;
     background-color: #c5c4c4;
     display: flex;
     justify-content: center;
@@ -258,12 +245,11 @@ body {
 /* Code to make the project responsive */
 
 /* Add responsive styles for the left column */
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 600px) {
     .container {
         width: 100%;
         align-items: flex-start;
         /* Center the content vertically */
-        border-radius: 0;
         height: auto;
     }
 
@@ -279,7 +265,6 @@ body {
         padding: 0;
         width: 100%;
         /* Occupy full width minus 20px on small screens */
-        border-radius: 0;
     }
 
     .sheet-container {
@@ -291,7 +276,6 @@ body {
         width: 100%;
         /* Occupy full width on small screens */
         height: 100%;
-        border-radius: 0;
     }
 
     .upper-row {
@@ -307,6 +291,17 @@ body {
     }
 
     .keyboard {
-        height: 100px;
+        height: 50%;
+    }
+}
+
+/* Do not show keyboard when too narrow */
+@media screen and (max-width: 440px) {
+    .keyboard {
+        display: none;
+    }
+
+    .sheet-container {
+        height: 50vh;
     }
 }

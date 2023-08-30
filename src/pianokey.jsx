@@ -1,11 +1,14 @@
 import { useState, useEffect } from "react"
 
-function PianoKey({ keyType, children, onPress }) {
+function PianoKey({ keyType, children, keyToPress : defaultKeyToPress, onPress }) {
+  const keyToPress = defaultKeyToPress || children
+
   const [pressed, setPressed] = useState(false)
   useEffect(() => {
     const onKeyDown = (event) => {
+      event.preventDefault()
       console.log(event.key, event.repeat)
-      if (event.key.toUpperCase() === children && !event.repeat) {
+      if (event.key.toUpperCase() === keyToPress.toUpperCase() && !event.repeat) {
         setPressed(true)
         console.log("onPress")
         onPress?.()
@@ -13,7 +16,7 @@ function PianoKey({ keyType, children, onPress }) {
     }
 
     const onKeyUp = (event) => {
-      if (event.key.toUpperCase() === children) {
+      if (event.key.toUpperCase() === keyToPress.toUpperCase()) {
         setPressed(false)
       }
     }
@@ -25,7 +28,7 @@ function PianoKey({ keyType, children, onPress }) {
       window.removeEventListener("keydown", onKeyDown)
       window.removeEventListener("keyup", onKeyUp)
     }
-  }, [children, onPress])
+  }, [keyToPress, onPress])
 
   const pressedStyle = pressed ? "pressed" : " "
   const keyStyle = keyType === "black" ? "bkey" : "wkey"

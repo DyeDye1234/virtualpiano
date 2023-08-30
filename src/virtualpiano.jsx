@@ -42,7 +42,7 @@ function VirtualPiano() {
             piano?.start({ note: `C${octave}` })
           }}
         >
-          Q
+          Tab
         </PianoKey>
 
         <PianoKey
@@ -52,106 +52,13 @@ function VirtualPiano() {
             piano?.start({ note: `C#${octave}` })
           }}
         >
-          2
+          1
         </PianoKey>
 
         <PianoKey
           onPress={() => {
             console.log(`D${octave}`)
             piano?.start({ note: `D${octave}` })
-          }}
-        >
-          W
-        </PianoKey>
-
-        <PianoKey
-          keyType="black"
-          onPress={() => {
-            console.log(`D#${octave}`)
-            piano?.start({ note: `D#${octave}` })
-          }}
-        >
-          3
-        </PianoKey>
-
-        <PianoKey
-          onPress={() => {
-            console.log(`E${octave}`)
-            piano?.start({ note: `E${octave}` })
-          }}
-        >
-          E
-        </PianoKey>
-
-        <PianoKey
-          onPress={() => {
-            console.log(`F${octave}`)
-            piano?.start({ note: `F${octave}` })
-          }}
-        >
-          R
-        </PianoKey>
-
-        <PianoKey
-          keyType="black"
-          onPress={() => {
-            console.log(`F#${octave}`)
-            piano?.start({ note: `F#${octave}` })
-          }}
-        >
-          5
-        </PianoKey>
-
-        <PianoKey
-          onPress={() => {
-            console.log(`G${octave}`)
-            piano?.start({ note: `G${octave}` })
-          }}
-        >
-          T
-        </PianoKey>
-
-        <PianoKey
-          keyType="black"
-          onPress={() => {
-            console.log(`G#${octave}`)
-            piano?.start({ note: `G#${octave}` })
-          }}
-        >
-          6
-        </PianoKey>
-
-        <PianoKey
-          onPress={() => {
-            console.log(`A${octave}`)
-            piano?.start({ note: `A${octave}` })
-          }}
-        >
-          Y
-        </PianoKey>
-
-        <PianoKey
-          keyType="black"
-          onPress={() => {
-            console.log(`A#${octave}`)
-            piano?.start({ note: `A#${octave}` })
-          }}
-        >
-          7
-        </PianoKey>
-
-        <PianoKey
-          onPress={() => {
-            console.log(`B${octave}`)
-            piano?.start({ note: `B${octave}` })
-          }}
-        >
-          U
-        </PianoKey>
-        <PianoKey
-          onPress={() => {
-            console.log(`C${octave}`)
-            piano?.start({ note: `C${octave}` })
           }}
         >
           Q
@@ -160,30 +67,11 @@ function VirtualPiano() {
         <PianoKey
           keyType="black"
           onPress={() => {
-            console.log(`C#${octave}`)
-            piano?.start({ note: `C#${octave}` })
-          }}
-        >
-          2
-        </PianoKey>
-
-        <PianoKey
-          onPress={() => {
-            console.log(`D${octave}`)
-            piano?.start({ note: `D${octave}` })
-          }}
-        >
-          W
-        </PianoKey>
-
-        <PianoKey
-          keyType="black"
-          onPress={() => {
             console.log(`D#${octave}`)
             piano?.start({ note: `D#${octave}` })
           }}
         >
-          3
+          2
         </PianoKey>
 
         <PianoKey
@@ -192,7 +80,7 @@ function VirtualPiano() {
             piano?.start({ note: `E${octave}` })
           }}
         >
-          E
+          W
         </PianoKey>
 
         <PianoKey
@@ -201,7 +89,7 @@ function VirtualPiano() {
             piano?.start({ note: `F${octave}` })
           }}
         >
-          R
+          E
         </PianoKey>
 
         <PianoKey
@@ -211,7 +99,7 @@ function VirtualPiano() {
             piano?.start({ note: `F#${octave}` })
           }}
         >
-          5
+          4
         </PianoKey>
 
         <PianoKey
@@ -220,7 +108,7 @@ function VirtualPiano() {
             piano?.start({ note: `G${octave}` })
           }}
         >
-          T
+          R
         </PianoKey>
 
         <PianoKey
@@ -230,7 +118,7 @@ function VirtualPiano() {
             piano?.start({ note: `G#${octave}` })
           }}
         >
-          6
+          5
         </PianoKey>
 
         <PianoKey
@@ -239,7 +127,7 @@ function VirtualPiano() {
             piano?.start({ note: `A${octave}` })
           }}
         >
-          Y
+          T
         </PianoKey>
 
         <PianoKey
@@ -249,7 +137,7 @@ function VirtualPiano() {
             piano?.start({ note: `A#${octave}` })
           }}
         >
-          7
+          6
         </PianoKey>
 
         <PianoKey
@@ -258,7 +146,120 @@ function VirtualPiano() {
             piano?.start({ note: `B${octave}` })
           }}
         >
+          Y
+        </PianoKey>
+        <PianoKey
+          onPress={() => {
+            console.log(`C${octave+1}`)
+            piano?.start({ note: `C${octave+1}` })
+          }}
+        >
           U
+        </PianoKey>
+
+        <PianoKey
+          keyType="black"
+          onPress={() => {
+            console.log(`C#${octave+1}`)
+            piano?.start({ note: `C#${octave+1}` })
+          }}
+        >
+          8
+        </PianoKey>
+
+        <PianoKey
+          onPress={() => {
+            console.log(`D${octave+1}`)
+            piano?.start({ note: `D${octave+1}` })
+          }}
+        >
+          I
+        </PianoKey>
+
+        <PianoKey
+          keyType="black"
+          onPress={() => {
+            console.log(`D#${octave+1}`)
+            piano?.start({ note: `D#${octave+1}` })
+          }}
+        >
+          9
+        </PianoKey>
+
+        <PianoKey
+          onPress={() => {
+            console.log(`E${octave+1}`)
+            piano?.start({ note: `E${octave+1}` })
+          }}
+        >
+          O
+        </PianoKey>
+
+        <PianoKey
+          onPress={() => {
+            console.log(`F${octave+1}`)
+            piano?.start({ note: `F${octave+1}` })
+          }}
+        >
+          P
+        </PianoKey>
+
+        <PianoKey
+          keyType="black"
+          onPress={() => {
+            console.log(`F#${octave+1}`)
+            piano?.start({ note: `F#${octave+1}` })
+          }}
+        >
+          -
+        </PianoKey>
+
+        <PianoKey
+          onPress={() => {
+            console.log(`G${octave+1}`)
+            piano?.start({ note: `G${octave+1}` })
+          }}
+        >
+          {"["}
+        </PianoKey>
+
+        <PianoKey
+          keyType="black"
+          onPress={() => {
+            console.log(`G#${octave+1}`)
+            piano?.start({ note: `G#${octave+1}` })
+          }}
+        >
+          =
+        </PianoKey>
+
+        <PianoKey
+          onPress={() => {
+            console.log(`A${octave+1}`)
+            piano?.start({ note: `A${octave+1}` })
+          }}
+        >
+          {"]"}
+        </PianoKey>
+
+        <PianoKey
+          keyType="black"
+          onPress={() => {
+            console.log(`A#${octave +1}`)
+            piano?.start({ note: `A#${octave+1}` })
+          }}
+          keyToPress="Backspace"
+        >
+          ⌫
+        </PianoKey>
+
+        <PianoKey
+          onPress={() => {
+            console.log(`B${octave+1}`)
+            piano?.start({ note: `B${octave+1}` })
+          }}
+        >
+          \
         </PianoKey>
       </div>
     </div>

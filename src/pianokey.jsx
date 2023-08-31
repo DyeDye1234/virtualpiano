@@ -21,12 +21,34 @@ function PianoKey({ keyType, children, keyToPress : defaultKeyToPress, onPress }
       }
     }
 
+    const handleTouchStart = (event) => {
+      event.preventDefault();
+      event.changedTouches.forEach((touch) => {
+        const key = touch.target.dataset.key;
+        setPressed(true)
+        handleKeyPress(key);
+      });
+    };
+
+    const handleTouchEnd = (event) => {
+      event.preventDefault();
+      event.changedTouches.forEach((touch) => {
+        const key = touch.target.dataset.key;
+        setPressed(true)
+        handleKeyPress(key);
+      });
+    };
+
     window.addEventListener("keydown", onKeyDown)
     window.addEventListener("keyup", onKeyUp)
+    // window.addEventListener("touchstart",handleTouchStart)
+    // window.addEventListener("touchend",handleTouchEnd)
 
     return () => {
       window.removeEventListener("keydown", onKeyDown)
       window.removeEventListener("keyup", onKeyUp)
+      // window.removeEventListener("touchstart",handleTouchStart)
+      // window.removeEventListener("touchend",handleTouchEnd)
     }
   }, [keyToPress, onPress])
 

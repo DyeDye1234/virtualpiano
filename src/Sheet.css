@@ -245,45 +245,43 @@ body {
 /* Code to make the project responsive */
 
 /* Add responsive styles for the left column */
-@media screen and (max-width: 600px) {
+/* @media screen and (max-width: 768px) {
     .container {
         width: 100%;
         align-items: flex-start;
-        /* Center the content vertically */
         height: auto;
     }
 
     .columns {
         flex-direction: column;
-        /* Stack columns on small screens */
         height: 100%;
-        /* Allow content to determine height */
     }
 
     .right-column {
         margin: 0;
         padding: 0;
         width: 100%;
-        /* Occupy full width minus 20px on small screens */
+  
     }
 
     .sheet-container {
-        height: 300px;
-        /* Limit sheet music height on small screens */
+        height: 200px;
     }
 
     .left-column {
         width: 100%;
-        /* Occupy full width on small screens */
+        
         height: 100%;
     }
 
     .upper-row {
-        height: 170px;
+        height: 125px;
     }
 
     .lower-row {
-        height: auto;
+        padding: 0;
+        margin: 0;
+        height: 140px;
     }
 
     .control-buttons {
@@ -293,15 +291,69 @@ body {
     .keyboard {
         height: 50%;
     }
-}
+} */
 
 /* Do not show keyboard when too narrow */
-@media screen and (max-width: 440px) {
-    .keyboard {
-        display: none;
+@media screen and (max-width: 768px) {
+    html,
+    body {
+        align-items: flex-start;
+        margin: 0;
+        padding: 0;
+    }
+    .container {
+        align-items: flex-start;
+        border-radius: 0;
+    }
+    .columns {
+        flex-direction: column;
+        height: 100%;
+    }
+    .right-column {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        border-radius: 0;
+        /* Occupy full width minus 20px on small screens */
     }
 
     .sheet-container {
-        height: 50vh;
+        height: 200px;
+        /* Limit sheet music height on small screens */
     }
+
+    .left-column {
+        width: 100%;
+        /* Occupy full width on small screens */
+        border-radius: 0;
+        margin: 0;
+        padding: 0;
+    }
+    .left-column > h2 {
+        padding: 1rem;
+        font-size: 14px;
+    }
+    .upper-row {
+        height: 120px;
+    }
+
+    .lower-row {
+        height: 150px;
+        padding-bottom: 30px;
+    }
+    .control-buttons {
+        flex-direction: row;
+    }
+    .lower-row {
+        gap: 0.5rem
+    }
+    .lower-row {
+        gap:0.5rem;
+        padding-top: 0.5rem;
+    }
+    .scroll-button,
+    .stop-button {
+        padding: 0.5rem;
+        font-size: 12px;
+}
 }
